@@ -5,6 +5,7 @@ using FJunkie.GameEntity;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace FJunkie.LevelEntity
 {
@@ -12,9 +13,13 @@ namespace FJunkie.LevelEntity
     {
 
         public List<Enemy> enemyListLevel1;
+        public Song songLevel1;
 
-        public Level1(Texture2D enemyShip)
+        public Level1(Texture2D enemyShip, Song songLevel1)
         {
+            this.songLevel1 = songLevel1;
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(songLevel1);
 
             enemyListLevel1 = new List<Enemy>();
             //Groupe1

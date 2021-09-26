@@ -13,29 +13,21 @@ namespace FJunkie.MouseEntity
         static MouseState currentMouseState;
         static MouseState previousMouseState;
 
-        public static bool LeftButtonPressed()
+        public static MouseState GetState()
         {
-            if (currentMouseState.LeftButton == ButtonState.Pressed
-                && previousMouseState.LeftButton == ButtonState.Released)
+            previousMouseState = currentMouseState;
+            currentMouseState = Microsoft.Xna.Framework.Input.Mouse.GetState();
+            return currentMouseState;
+        }
+
+        public static bool IsPressed()
+        {
+            if (currentMouseState.LeftButton == ButtonState.Pressed)
                 return true;
             else return false;
         }
 
-        public static bool LeftButtonReleased()
-        {
-            if (currentMouseState.LeftButton == ButtonState.Released
-                && previousMouseState.LeftButton == ButtonState.Pressed)
-                return true;
-            else return false;
-        }
-
-        public static bool LeftButtonDrop()
-        {
-            if ((currentMouseState.LeftButton == ButtonState.Released)
-                && (previousMouseState.LeftButton == ButtonState.Pressed))
-                return true;
-            else return false;
-        }
+     
 
     }
 }

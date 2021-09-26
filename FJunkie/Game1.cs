@@ -5,6 +5,8 @@ using FJunkie.GameEntity;
 using System.Collections.Generic;
 using FJunkie.KeyboardEntity;
 using FJunkie.LevelEntity;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace FJunkie
 {
@@ -40,9 +42,8 @@ namespace FJunkie
         protected override void Initialize()
         {
             this.IsMouseVisible = false;
-            playerObject = new Player();
-
-            level1 = new Level1(Content.Load<Texture2D>("enemyship"));
+            playerObject = new Player(Content.Load<SoundEffect>("shootSoundWav"));
+            level1 = new Level1(Content.Load<Texture2D>("enemyship"), Content.Load<Song>("song"));
 
             base.Initialize();
         }

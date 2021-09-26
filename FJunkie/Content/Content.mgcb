@@ -85,3 +85,21 @@
 /processorParam:TextureFormat=Color
 /build:playershoot.png
 
+#begin shootSound.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:shootSound.mp3
+
+#begin shootSoundWav.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:shootSoundWav.wav
+
+#begin song.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:song.mp3
+
