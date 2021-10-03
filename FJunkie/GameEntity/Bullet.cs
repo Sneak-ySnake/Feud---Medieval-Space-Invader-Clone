@@ -21,7 +21,7 @@ namespace FJunkie.GameEntity
             this.shoot = shoot;
             this.shootPosition = shootPosition;
             this.bulletSpeed = bulletSpeed;
-            shootCollision = new Rectangle((int)shootPosition.X, (int)shootCollision.Y, shoot.Width, 4);
+            shootCollision = new Rectangle((int)shootPosition.X, (int)shootPosition.Y, shoot.Width, shoot.Height);
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -33,6 +33,7 @@ namespace FJunkie.GameEntity
         {
             shootPosition.Y += bulletSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             shootCollision.Y = (int)shootPosition.Y;
+            shootCollision.X = (int)shootPosition.X;
         }
 
     }

@@ -41,15 +41,21 @@ namespace FJunkie.GameEntity
             enemyCollision.X = (int)enemyPosition.X;
         }
 
-        public void enemyFire(GameTime gameTime, Texture2D enemyShoot)
+        public void EnemyFire(GameTime gameTime, Texture2D enemyShoot)
         {
             Random r = new Random();
-            int nextValue = r.Next(0, 300);
+            int nextValue = r.Next(0, 100);
 
             if(nextValue==1)
             {
-                bulletList.Add(new Bullet(enemyShoot, new Vector2(enemyPosition.X, enemyPosition.Y), 400f));
+                bulletList.Add(new Bullet(enemyShoot, new Vector2(enemyPosition.X+enemyShip.Width/2, enemyPosition.Y), 400f));
             }
+        }
+
+        public void EnnemyCollision(Bullet bullet)
+        {
+            if (bullet.shootCollision.Intersects(enemyCollision))
+                enemyPosition = new Vector2(10000, 0);
         }
 
     }
